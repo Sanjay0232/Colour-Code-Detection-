@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Detector - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <span class="logo-primary">Color</span>
+                <span>Detector</span>
+            </a>
+            <nav>
+                <a href="index.html" class="nav-link">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="dashboard-main">
+        <div class="container">
+            <h1>Color Detector</h1>
+
+            <div class="dashboard-grid">
+                <div class="upload-section">
+                    <div id="drop-area" class="drop-area">
+                        <input type="file" id="file-input" accept="image/*" hidden>
+                        <div id="upload-prompt" class="upload-prompt">
+                            <i class="fas fa-upload"></i>
+                            <p>Drag and drop an image here, or click to browse</p>
+                            <span>Supports JPG, PNG, GIF, and other image formats</span>
+                        </div>
+                        <div id="image-preview" class="image-preview hidden">
+                            <img id="preview-img" src="/placeholder.svg" alt="Uploaded image">
+                            <button id="clear-image" class="clear-image">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Hidden canvas for image processing -->
+                    <canvas id="canvas" hidden></canvas>
+
+                    <div id="error-container" class="error-container hidden"></div>
+                </div>
+
+                <div class="colors-section">
+                    <div class="colors-header">
+                        <h2>Detected Colors</h2>
+                        <button id="export-palette" class="btn btn-outline btn-sm hidden">
+                            <i class="fas fa-download"></i>
+                            Export Palette
+                        </button>
+                    </div>
+
+                    <div id="processing-indicator" class="processing-indicator hidden">
+                        <div class="spinner"></div>
+                    </div>
+
+                    <div id="colors-container" class="colors-container">
+                        <div id="no-colors-message" class="no-colors-message">
+                            <p>Upload an image to detect colors</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Color Detector. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="tooltip" class="tooltip hidden">Copied!</div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
